@@ -4,24 +4,29 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double cost;
-        int amount;
-        double years;
-        double finalCost;
+        //Email to username and domain
 
-        System.out.print("what is the cost of the membership per year?: ");
-        cost = scanner.nextDouble();
+        String email;
+        String domain;
+        String username;
 
-        System.out.print("How many memberships do you want?: ");
-        amount = scanner.nextInt();
 
-        System.out.print("how many years do you want the membership for?: ");
-        years = scanner.nextDouble();
+        System.out.println("This is a program where when it gets an email it gives you a username and domain");
 
-        finalCost = cost * years * amount;
+        System.out.println();
 
-        System.out.printf("The cost will be $%.2f", finalCost);
+        System.out.print("What is your email?: ");
+        email = scanner.nextLine();
 
-        scanner.close();
+        if (email.contains("@")) {
+            username = email.substring(0, email.indexOf("@"));
+            domain = email.substring(email.indexOf("@") + 1);
+
+            System.out.printf("username is: %s! domain is: %s", username, domain);
+
+            scanner.close();
+        } else {
+            System.out.println("YOU NEED A VALID EMAIL!!!!!");
+        }
     }
 }
